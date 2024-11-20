@@ -1,7 +1,7 @@
-import 'bootstrap/dist/css/bootstrap.min.css'; // Global Bootstrap styles
+import "bootstrap/dist/css/bootstrap.min.css"; // Global Bootstrap styles
 import localFont from "next/font/local";
-import './globals.css'; // Your custom global styles
-import NavBar from './components/NavBar/NavBar';
+import "./globals.css"; // Your custom global styles
+import NavBar from "./components/NavBar/NavBar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -22,8 +22,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Mulish:wght@200..1000&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {/* Render the NavBar on top of each page */}
         <NavBar />
         <main>{children}</main>
       </body>
