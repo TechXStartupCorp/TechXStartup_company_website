@@ -30,6 +30,14 @@ body {
 .xtraBold {
   font-weight: 800 !important;
 }
+
+.roundedImage {
+  border-radius: var(--border-radius-small);
+}
+
+.rounded {
+  border-radius: var(--border-radius-small) !important;
+}
 /* 
 @media (max-width: 575px) {
   .section {

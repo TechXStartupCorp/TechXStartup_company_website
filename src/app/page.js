@@ -4,6 +4,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import CustomBtn from "./components/CustomBtn/CustomBtn";
 import { Row, Col } from "react-bootstrap";
+import Link from "next/link";
 
 export default function Home() {
   const services = [
@@ -75,24 +76,32 @@ export default function Home() {
       title: "Project X",
       text: "This tech project aims to revolutionize the way businesses manage their operations by providing innovative solutions that streamline workflows, enhance productivity, and improve user experience. ",
       link: "urlhere.com",
+      image:
+        "https://res.cloudinary.com/dq8ii6nbc/image/upload/v1732137929/sydney-rae-i0kQM6OdeVc-unsplash_cmtw8i.jpg",
     },
     {
       year: "2021",
       title: "Project Y",
       text: "This tech project seeks to transform how businesses operate by offering innovative solutions that optimize workflows, boost efficiency, and elevate the overall user experience.",
       link: "urlhere.com",
+      image:
+        "https://res.cloudinary.com/dq8ii6nbc/image/upload/v1732137929/sydney-rae-i0kQM6OdeVc-unsplash_cmtw8i.jpg",
     },
     {
       year: "2020",
       title: "Project X",
       text: "This tech project aims to revolutionize the way businesses manage their operations by providing innovative solutions that streamline workflows, enhance productivity, and improve user experience. ",
       link: "urlhere.com",
+      image:
+        "https://res.cloudinary.com/dq8ii6nbc/image/upload/v1732137929/sydney-rae-i0kQM6OdeVc-unsplash_cmtw8i.jpg",
     },
     {
       year: "2020",
       title: "Project Y",
       text: "This tech project seeks to transform how businesses operate by offering innovative solutions that optimize workflows, boost efficiency, and elevate the overall user experience.",
       link: "urlhere.com",
+      image:
+        "https://res.cloudinary.com/dq8ii6nbc/image/upload/v1732137929/sydney-rae-i0kQM6OdeVc-unsplash_cmtw8i.jpg",
     },
   ];
 
@@ -157,7 +166,7 @@ export default function Home() {
                   src={service.image}
                   alt={service.title}
                   layout="fill"
-                  objectFit="cover"
+                  // objectFit="cover"
                 />
               </div>
               <div>
@@ -175,17 +184,34 @@ export default function Home() {
             <div key={year}>
               <h5 className="xtraBold mt-5">{year}</h5>
               {groupedProjects[year].map((project, index) => (
-                <div className="pb-5" key={index}>
-                  <h3 className="mt-4">{project.title}</h3>
-                  <p>{project.text}</p>
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Learn more
-                  </a>
-                </div>
+                <Row className="pb-5 mt-5" key={index}>
+                  <Col>
+                    <h5 className="xtraBold">{project.title}</h5>
+                    <p className="mt-3 text-secondary">{project.text}</p>
+                    <div className={styles.caseStudyLinkContainer}>
+                      <Link
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`text-dark fw-bold text-decoration-none py-2 px-3 rounded ${styles.caseStudyLink}`}
+                      >
+                        Learn more
+                      </Link>
+                    </div>
+                  </Col>
+                  <Col xl={4}>
+                    <div
+                      className={`${styles.featuredProjImgContainer} position-relative h-auto w-100`}
+                    >
+                      <Image
+                        className="roundedImage"
+                        src={project.image}
+                        alt={project.title}
+                        layout="fill"
+                      />
+                    </div>
+                  </Col>
+                </Row>
               ))}
             </div>
           ))}
