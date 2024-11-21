@@ -68,6 +68,42 @@ export default function Home() {
       text: "Developing prototypes and designs to showcase your innovation to incubators and investors.",
     },
   ];
+
+  const featuredProjects = [
+    {
+      year: "2021",
+      title: "Project X",
+      text: "This tech project aims to revolutionize the way businesses manage their operations by providing innovative solutions that streamline workflows, enhance productivity, and improve user experience. ",
+      link: "urlhere.com",
+    },
+    {
+      year: "2021",
+      title: "Project Y",
+      text: "This tech project seeks to transform how businesses operate by offering innovative solutions that optimize workflows, boost efficiency, and elevate the overall user experience.",
+      link: "urlhere.com",
+    },
+    {
+      year: "2020",
+      title: "Project X",
+      text: "This tech project aims to revolutionize the way businesses manage their operations by providing innovative solutions that streamline workflows, enhance productivity, and improve user experience. ",
+      link: "urlhere.com",
+    },
+    {
+      year: "2020",
+      title: "Project Y",
+      text: "This tech project seeks to transform how businesses operate by offering innovative solutions that optimize workflows, boost efficiency, and elevate the overall user experience.",
+      link: "urlhere.com",
+    },
+  ];
+
+  const groupedProjects = featuredProjects.reduce((acc, project) => {
+    if (!acc[project.year]) {
+      acc[project.year] = [];
+    }
+    acc[project.year].push(project);
+    return acc;
+  }, {});
+
   return (
     <div>
       <div
@@ -109,24 +145,50 @@ export default function Home() {
           residence and build a future in Canada.
         </p>
       </div>
-      <Row className="g-4 mt-3">
+
+      <Row className="g-4">
         {services.map((service, index) => (
-          <Col key={index} xs={12} sm={6} lg={4} xl={3}>
-            <div
-              className={`d-flex flex-column h-100 ${styles.serviceCard}`}
-            >
+          <Col key={index} xs={12} sm={6} lg={4} xl={3} className="rounded">
+            <div className={`d-flex flex-column h-100 ${styles.serviceCard}`}>
               <div className={styles.imgContainer}>
                 <Image
                   src={service.image}
-                  alt={service.title} // Ensure you add the alt attribute
-                  layout="fill" // Ensures the image takes the full space
-                  objectFit="cover" // Maintains aspect ratio and covers the space without distortion
+                  alt={service.title}
+                  layout="fill"
+                  objectFit="cover"
                 />
+              </div>
+              <div>
+                <h5 className="fw-bold mt-3">{service.title}</h5>
+                <p className="text-secondary">{service.text}</p>
               </div>
             </div>
           </Col>
         ))}
       </Row>
+      <div className="section">
+        <h4 className="xtraBold mt-4">Featured projects</h4>
+        <div>
+          {Object.keys(groupedProjects).map((year) => (
+            <div key={year}>
+              <h2>{year}</h2>
+              {groupedProjects[year].map((project, index) => (
+                <div key={index}>
+                  <h3>{project.title}</h3>
+                  <p>{project.text}</p>
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Learn more
+                  </a>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
