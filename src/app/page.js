@@ -104,6 +104,8 @@ export default function Home() {
     return acc;
   }, {});
 
+  const sortedYears = Object.keys(groupedProjects).sort((a, b) => b - a);
+
   return (
     <div>
       <div
@@ -169,12 +171,12 @@ export default function Home() {
       <div className="section">
         <h4 className="xtraBold mt-4">Featured projects</h4>
         <div>
-          {Object.keys(groupedProjects).map((year) => (
+          {sortedYears.map((year) => (
             <div key={year}>
-              <h2>{year}</h2>
+              <h5 className="xtraBold mt-5">{year}</h5>
               {groupedProjects[year].map((project, index) => (
-                <div key={index}>
-                  <h3>{project.title}</h3>
+                <div className="pb-5" key={index}>
+                  <h3 className="mt-4">{project.title}</h3>
                   <p>{project.text}</p>
                   <a
                     href={project.link}
