@@ -22,7 +22,7 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  /* padding: 1rem; */
+  padding: 2.5rem;
   color: white;
   z-index: 10;
 }
@@ -30,3 +30,23 @@
 .textOverlay p {
   font-size: 1.1rem;
 }
+
+.landingPageContent h2 {
+  line-height: 2.75rem;
+}
+
+.serviceCard img {
+  /* Image itself will fill its container and cover the area */
+  object-fit: cover;
+  width: 100%;  /* Ensure the image covers full width */
+  height: 100%;  /* Ensure the image covers full height */
+}
+
+.imgContainer {
+  position: relative; /* Keep position relative for Image to fill */
+  width: 100%; /* Full width of the parent */
+  padding-bottom: 60.25%; /* This keeps the 16:9 aspect ratio */
+  overflow: hidden; /* Ensure the image is clipped to fit the container */
+  cursor: pointer; /* Optional, for interactivity */
+}
+

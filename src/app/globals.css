@@ -4,7 +4,7 @@ body {
   position: relative;
   font-family: Mulish, sans-serif !important;
   scroll-behavior: smooth;
-  padding: 0 !important;
+  padding-top: 80px; 
   margin: 0 !important;
 }
 
@@ -21,6 +21,14 @@ body {
 .section {
   padding: 100px 0;
   width: 100%;
+}
+
+.section {
+  padding: 2rem 0;
+}
+
+.xtraBold {
+  font-weight: 800 !important;
 }
 /* 
 @media (max-width: 575px) {
