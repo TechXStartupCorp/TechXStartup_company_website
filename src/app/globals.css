@@ -4,7 +4,7 @@ body {
   position: relative;
   font-family: Mulish, sans-serif !important;
   scroll-behavior: smooth;
-  padding-top: 80px; 
+  padding-top: 80px;
   margin: 0 !important;
 }
 
@@ -16,6 +16,7 @@ body {
 
 :root {
   --border-radius-small: 10px;
+  --lightGreyContainerBG: #f0f2f4;
 }
 
 .section {

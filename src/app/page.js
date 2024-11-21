@@ -5,6 +5,8 @@ import styles from "./page.module.css";
 import CustomBtn from "./components/CustomBtn/CustomBtn";
 import { Row, Col } from "react-bootstrap";
 import Link from "next/link";
+import CalloutSection from "./components/CalloutSection/CalloutSection";
+import Stats from "./components/Stats/Stats";
 
 export default function Home() {
   const services = [
@@ -117,31 +119,17 @@ export default function Home() {
 
   return (
     <div>
-      <div
-        className={`${styles.heroContainer} w-100 mt-4 position-relative d-flex`}
-      >
-        <div className={styles.optionalDarkOverlay}></div>
-        <Image
-          className={`${styles.heroImage}`}
-          src="https://res.cloudinary.com/dq8ii6nbc/image/upload/v1732137929/sydney-rae-i0kQM6OdeVc-unsplash_cmtw8i.jpg"
-          alt="Beautiful landscape"
-          layout="fill"
-          objectFit="cover"
-          quality={100}
-          priority={true}
-        />
-        <div className={`${styles.textOverlay}`}>
-          <h1 className="fw-bold">Build the future</h1>
-          <p>
-            Accelerate your startup’s growth with support from Canada’s Startup
-            Visa Program
-          </p>
-          <div className="d-flex gap-3 mt-4">
-            <CustomBtn text="Book consult" variant="primary" />
-            <CustomBtn text="Learn more" variant="light" />
-          </div>
-        </div>
-      </div>
+      <CalloutSection
+        imageURL="https://res.cloudinary.com/dq8ii6nbc/image/upload/v1732137929/sydney-rae-i0kQM6OdeVc-unsplash_cmtw8i.jpg"
+        alt="Beautiful landscape"
+        title="Build the future"
+        text="Accelerate your startup’s growth with support from Canada’s Startup
+      Visa Program"
+        primaryBtnText="Book consult"
+        lightBtnText="Learn more"
+        secondBtn={true}
+      />
+
       <div className={`${styles.landingPageContent} section w-75`}>
         <h2 className={`xtraBold`}>
           Our mission is to empower creators and innovators to push boundaries
@@ -216,6 +204,19 @@ export default function Home() {
             </div>
           ))}
         </div>
+      </div>
+      <div className="section">
+        <CalloutSection
+          imageURL="https://res.cloudinary.com/dq8ii6nbc/image/upload/v1732137929/sydney-rae-i0kQM6OdeVc-unsplash_cmtw8i.jpg"
+          alt="Beautiful landscape"
+          title="Transform Your Startup’s Future"
+          text="Elevate your business with Canada's Startup Visa Program. Unlock new opportunities and accelerate your growth."
+          primaryBtnText="Get started"
+          secondBtn={false}
+        />
+      </div>
+      <div className="section">
+        <Stats />
       </div>
     </div>
   );
