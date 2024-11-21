@@ -8,7 +8,7 @@ import { FaUser } from "react-icons/fa6";
 
 const NavBar = () => {
   return (
-    <Navbar className={`${styles.navBar} px-5 py-3`} bg="light" expand="lg">
+    <Navbar className={`${styles.navBar} px-5 py-3`} expand="lg">
       <Navbar.Brand className="d-flex align-items-center" href="#home">
         <div className={styles.logoContainer}>
           <span className={styles.logoSpan}></span>

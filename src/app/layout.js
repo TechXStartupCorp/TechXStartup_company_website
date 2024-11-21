@@ -2,6 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css"; // Global Bootstrap styles
 import localFont from "next/font/local";
 import "./globals.css"; // Your custom global styles
 import NavBar from "./components/NavBar/NavBar";
+import { Container } from "react-bootstrap";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -30,7 +31,10 @@ export default function RootLayout({ children }) {
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <NavBar />
-        <main>{children}</main>
+        <main>
+          <Container>
+          {children}
+          </Container></main>
       </body>
     </html>
   );
