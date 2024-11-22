@@ -7,6 +7,10 @@ import { Row, Col } from "react-bootstrap";
 import Link from "next/link";
 import CalloutSection from "./components/CalloutSection/CalloutSection";
 import Stats from "./components/Stats/Stats";
+import { FaRegCompass } from "react-icons/fa6";
+import { FaNetworkWired, FaRegLightbulb } from "react-icons/fa";
+import { LiaHandsHelpingSolid } from "react-icons/lia";
+
 
 export default function Home() {
   const services = [
@@ -130,6 +134,29 @@ export default function Home() {
     },
   ];
 
+  const sellingPoints = [
+    {
+      icon: <FaRegCompass />,
+      title: "End-to-End Guidance",
+      text: "We take you from concept to execution, offering tailored support to help secure your Startup Visa approval.",
+    },
+    {
+      icon: <FaNetworkWired />,
+      title: "Extensive Network",
+      text: "Access our network of investors and incubators to bring your vision to life and fast-track your growth in Canada.",
+    },
+    {
+      icon: <FaRegLightbulb />,
+      title: "Innovative Solutions",
+      text: "Our expertise ensures your startup stands out, with solutions crafted to meet immigration and market demands.",
+    },
+    {
+      icon: <LiaHandsHelpingSolid />,
+      title: "Dedicated Support",
+      text: "From personalized consultations to milestone tracking, we’re with you every step of the way.",
+    },
+  ];
+
   const groupedProjects = featuredProjects.reduce((acc, project) => {
     if (!acc[project.year]) {
       acc[project.year] = [];
@@ -245,19 +272,34 @@ export default function Home() {
         <Stats />
       </div>
       <div className="section">
-        <h2 className={`xtraBold`}>Bring Your Vision to Life</h2>
+        <h2 className={`xtraBold`}>Why Tech X Startup?</h2>
         <p className="mt-4 w-75 pb-2">
-          Tech X Startup turns your vision into reality, guiding you from
-          concept to execution and securing the letter of support for the Canada
-          Startup Visa Program.
+          Tech X Startup guides you from idea to success, securing essential
+          support for Canada’s Startup Visa Program and unlocking opportunities
+          for your business to thrive.
         </p>
+        <Row className="mt-5">
+          {sellingPoints.map((point, index) => (
+            <Col
+              lg={6}
+              key={index}
+              className="d-flex flex-column align-items-center"
+            >
+              <div className={`${styles.sellingPointCard} d-flex flex-column p-4`}>
+                <div className="fs-4">{point.icon}</div>
+                <h5 className="xtraBold mt-3">{point.title}</h5>
+                <p className="text-secondary mt-1">{point.text}</p>
+              </div>
+            </Col>
+          ))}
+        </Row>
         <div className="mt-4">
           <CustomBtn variant="primary" text="Learn more" />
         </div>
       </div>
       <div className="section">
         <h4 className="xtraBold mt-4">Our trusted partners</h4>
-        <Row>
+        <Row className="mt-4">
           {partners.map((partner, index) => (
             <Col key={index} lg={3} md={6} sm={12} className="mb-4">
               <div className="partner-card text-center">

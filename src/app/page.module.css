@@ -61,3 +61,8 @@
 .featuredProjImgContainer {
   padding-bottom: 56.25%;
 }
+
+.sellingPointCard {
+  border: 1px solid #d0dbe7;
+  border-radius: 12px;
+}
