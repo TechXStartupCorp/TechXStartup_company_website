@@ -1,5 +1,6 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
+import styles from './Stats.module.css'
 
 const Stats = () => {
   const stats = [
@@ -23,7 +24,11 @@ const Stats = () => {
     <Row>
       {stats.map((stat, index) => (
         <Col key={index} lg={4} className="mb-4">
-          <div>hi</div>
+          <div className={`${styles.statCard} rounded p-4`}>
+            <h6 className="fw-semibold">{stat.title}</h6>
+            <h3 className="xtraBold mt-3">{stat.percentage}</h3>
+            <span className="text-success fw-bold mt-1">{stat.average}</span>
+          </div>
         </Col>
       ))}
     </Row>

@@ -107,6 +107,29 @@ export default function Home() {
     },
   ];
 
+  const partners = [
+    {
+      name: "Partner X",
+      image:
+        "https://res.cloudinary.com/dq8ii6nbc/image/upload/v1732137929/sydney-rae-i0kQM6OdeVc-unsplash_cmtw8i.jpg",
+    },
+    {
+      name: "Partner Y",
+      image:
+        "https://res.cloudinary.com/dq8ii6nbc/image/upload/v1732137929/sydney-rae-i0kQM6OdeVc-unsplash_cmtw8i.jpg",
+    },
+    {
+      name: "Partner X",
+      image:
+        "https://res.cloudinary.com/dq8ii6nbc/image/upload/v1732137929/sydney-rae-i0kQM6OdeVc-unsplash_cmtw8i.jpg",
+    },
+    {
+      name: "Partner Y",
+      image:
+        "https://res.cloudinary.com/dq8ii6nbc/image/upload/v1732137929/sydney-rae-i0kQM6OdeVc-unsplash_cmtw8i.jpg",
+    },
+  ];
+
   const groupedProjects = featuredProjects.reduce((acc, project) => {
     if (!acc[project.year]) {
       acc[project.year] = [];
@@ -144,27 +167,29 @@ export default function Home() {
           residence and build a future in Canada.
         </p>
       </div>
-
-      <Row className="g-4">
-        {services.map((service, index) => (
-          <Col key={index} xs={12} sm={6} lg={4} xl={3} className="rounded">
-            <div className={`d-flex flex-column h-100 ${styles.serviceCard}`}>
-              <div className={styles.imgContainer}>
-                <Image
-                  src={service.image}
-                  alt={service.title}
-                  layout="fill"
-                  // objectFit="cover"
-                />
+      <div>
+        <h4 className="xtraBold">Our services</h4>
+        <Row className="g-4 mt-2">
+          {services.map((service, index) => (
+            <Col key={index} xs={12} sm={6} lg={4} xl={3} className="rounded">
+              <div className={`d-flex flex-column h-100 ${styles.serviceCard}`}>
+                <div className={styles.imgContainer}>
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    layout="fill"
+                    // objectFit="cover"
+                  />
+                </div>
+                <div>
+                  <h5 className="xtraBold mt-3">{service.title}</h5>
+                  <p className="text-secondary">{service.text}</p>
+                </div>
               </div>
-              <div>
-                <h5 className="fw-bold mt-3">{service.title}</h5>
-                <p className="text-secondary">{service.text}</p>
-              </div>
-            </div>
-          </Col>
-        ))}
-      </Row>
+            </Col>
+          ))}
+        </Row>
+      </div>
       <div className="section">
         <h4 className="xtraBold mt-4">Featured projects</h4>
         <div>
@@ -172,7 +197,7 @@ export default function Home() {
             <div key={year}>
               <h5 className="xtraBold mt-5">{year}</h5>
               {groupedProjects[year].map((project, index) => (
-                <Row className="pb-5 mt-5" key={index}>
+                <Row className="mt-5" key={index}>
                   <Col>
                     <h5 className="xtraBold">{project.title}</h5>
                     <p className="mt-3 text-secondary">{project.text}</p>
@@ -210,13 +235,41 @@ export default function Home() {
           imageURL="https://res.cloudinary.com/dq8ii6nbc/image/upload/v1732137929/sydney-rae-i0kQM6OdeVc-unsplash_cmtw8i.jpg"
           alt="Beautiful landscape"
           title="Transform Your Startup’s Future"
-          text="Elevate your business with Canada's Startup Visa Program. Unlock new opportunities and accelerate your growth."
+          text="Elevate your business with Canada's Startup Visa Program. Unlock new opportunities, gain invaluable support, and accelerate your growth as you scale your startup to new heights."
           primaryBtnText="Get started"
           secondBtn={false}
+          getSomethingForm={true}
         />
       </div>
-      <div className="section">
+      <div>
         <Stats />
+      </div>
+      <div className="section">
+        <h2 className={`xtraBold`}>Bring Your Vision to Life</h2>
+        <p className="mt-4 w-75 pb-2">
+          Tech X Startup turns your vision into reality, guiding you from
+          concept to execution and securing the letter of support for the Canada
+          Startup Visa Program.
+        </p>
+        <div className="mt-4">
+          <CustomBtn variant="primary" text="Learn more" />
+        </div>
+      </div>
+      <div className="section">
+        <h4 className="xtraBold mt-4">Our trusted partners</h4>
+        <Row>
+          {partners.map((partner, index) => (
+            <Col key={index} lg={3} md={6} sm={12} className="mb-4">
+              <div className="partner-card text-center">
+                <img
+                  src={partner.image}
+                  alt={partner.name}
+                  className="img-fluid rounded"
+                />
+              </div>
+            </Col>
+          ))}
+        </Row>
       </div>
     </div>
   );
